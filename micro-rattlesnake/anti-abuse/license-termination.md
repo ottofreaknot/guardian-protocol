@@ -1,0 +1,3 @@
+- License revocation for abuse
+- Audit dashboard for forks
+- NFC badge system for activation

@@ -1,0 +1,3 @@
+- Detect pressure/motion
+- Trigger alert or recording
+- Store encrypted evidence

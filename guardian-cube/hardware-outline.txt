@@ -1,0 +1,1 @@
+LEDs, speaker, BLE module, alert signal trigger, optional LTE or LoRa.
