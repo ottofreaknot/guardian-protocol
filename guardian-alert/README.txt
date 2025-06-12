@@ -30,7 +30,10 @@ Use the included `guardian_alert.gs` script.
    - Request Body: JSON  
      - `time`: `Time`  
      - `location`: `Location`  
-     - `webhook`: `"https://discord.com/api/webhooks/PUT-YOUR-URL-HERE"`
+     - get contents of url - URL: “https://script.google.com/macros/s/YOUR-DEPLOYED-URL-HERE/exec”
+
+Note: Your Google Script will forward this to Discord using your embedded webhook.
+
 
 ---
 
