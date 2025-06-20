@@ -1,0 +1,14 @@
+
+📄 Google Apps Script Automation Toolkit
+
+This script is part of a modular system used for:
+- 📅 Scheduling tasks and events via Google Sheets
+- 🔔 Sending real-time alerts to Discord using webhooks
+- 🗂 Logging maintenance and work reports into Google Drive
+- ✅ Automatically tagging tasks as "Posted" to prevent duplicates
+
+Designed for small teams, service businesses, and field operations.
+Customizable for multiple clients, repeat visits, or task tracking.
+
+Note: This specific script was originally designed for "Maintenance Reports"
+but can be adapted for other types of logs or scheduling needs.

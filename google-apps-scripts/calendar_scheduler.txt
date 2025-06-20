@@ -1,0 +1,30 @@
+
+// IDENTIFIER: CALENDAR_SCHEDULER
+function onEdit(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Schedule");
+  const row = e?.range?.getRow();
+  if (!row || row < 2) return;
+
+  const rowData = sheet.getRange(row, 1, 1, 10).getValues()[0];
+  const [client, activity, startStr, endStr, location, worker, tools, notes, weather, posted] = rowData;
+
+  if (!client || !activity || !startStr || !endStr || posted === "Posted") return;
+
+  const calendar = CalendarApp.getCalendarById("your-calendar-id@group.calendar.google.com");
+  const start = new Date(startStr);
+  const end = new Date(endStr);
+  calendar.createEvent(activity + " - " + client, start, end, {location: location, description: notes});
+
+  const webhook = "https://discord.com/api/webhooks/your-webhook";
+  const payload = {
+    content: `📅 New Task Scheduled\n**Client:** ${client}\n**Activity:** ${activity}\n**Time:** ${startStr}`,
+  };
+
+  UrlFetchApp.fetch(webhook, {
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(payload),
+  });
+
+  sheet.getRange(row, 10).setValue("Posted");
+}

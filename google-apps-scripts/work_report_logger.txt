@@ -1,0 +1,37 @@
+
+// IDENTIFIER: FORM_WORK_REPORT
+function onFormSubmit(e) {
+  const named = e.namedValues;
+  const name = named["Name"]?.[0] || "Unknown";
+  const task = named["Tasks Completed"]?.[0] || "";
+  const notes = named["Notes"]?.[0] || "";
+  const client = named["Client"]?.[0] || "General";
+  const timestamp = new Date().toLocaleString();
+
+  const folderId = "your-drive-folder-id";
+  const folder = DriveApp.getFolderById(folderId);
+  const clientFolder = folder.getFoldersByName(client).hasNext() ? folder.getFoldersByName(client).next() : folder.createFolder(client);
+
+  const doc = DocumentApp.create(`${client} Report - ${timestamp}`);
+  const body = doc.getBody();
+  body.appendParagraph(`Client: ${client}`);
+  body.appendParagraph(`Name: ${name}`);
+  body.appendParagraph(`Tasks Completed: ${task}`);
+  body.appendParagraph(`Notes: ${notes}`);
+  body.appendParagraph(`Time: ${timestamp}`);
+  doc.saveAndClose();
+
+  const file = DriveApp.getFileById(doc.getId());
+  clientFolder.addFile(file);
+
+  const webhook = "https://discord.com/api/webhooks/your-webhook";
+  const payload = {
+    content: `📄 New Work Report for ${client} submitted by ${name}.`,
+  };
+
+  UrlFetchApp.fetch(webhook, {
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(payload),
+  });
+}

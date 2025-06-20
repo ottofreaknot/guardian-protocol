@@ -1,0 +1,57 @@
+
+Google Apps Script Automation — Quick Start Guide
+=================================================
+
+This walkthrough explains how to set up and use the automation tools included in this package.
+
+📁 INCLUDED FILES:
+- calendar_scheduler.txt
+- work_report_logger.txt
+- manual_report_logger.txt
+- README.md (summary of features and structure)
+
+---
+
+🚀 STEP-BY-STEP SETUP:
+
+1. 📂 Open Google Sheets
+   - Create or open your target spreadsheet.
+   - Add tabs named appropriately (e.g., "Schedule", "Maintenance").
+
+2. 🧠 Copy Script Code
+   - Open `script.google.com`
+   - Create a new project and paste in each .txt file’s content into separate script files.
+   - Rename the scripts: `calendar_scheduler.gs`, etc.
+
+3. ⚙️ Set Up Triggers
+   - Go to the Apps Script editor > Triggers (⏰ icon or “Triggers” in the left panel).
+   - Add new triggers:
+     - `onEdit` for `calendar_scheduler.gs` and `manual_report_logger.gs`
+     - `onFormSubmit` for `work_report_logger.gs`
+
+4. 🔗 Connect Services
+   - Calendar: Replace `"your-calendar-id"` with your actual Google Calendar ID.
+   - Discord: Replace `"your-webhook"` with your actual Discord webhook URL.
+   - Drive: Replace folder IDs as needed.
+
+5. 📡 Test It
+   - Enter a test row in Sheets or submit a form to trigger.
+   - Check if calendar events are added and alerts sent to Discord.
+
+---
+
+🛠 TROUBLESHOOTING:
+
+✅ Common Fixes:
+- Make sure all column names match what the script expects.
+- Ensure triggers are set for the correct functions.
+- Use `Logger.log()` and view execution logs in Apps Script.
+
+📸 If something breaks:
+Take a **screenshot or screen recording** of the problem and paste it into ChatGPT or your support channel.
+
+💻 We recommend using a **computer** (not mobile) when debugging or editing scripts for best results.
+
+---
+
+Built to help small teams work smarter, faster, and more transparently.

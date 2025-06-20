@@ -1,0 +1,54 @@
+
+⚠️ BETA TESTING NOTICE + USAGE GUIDELINES
+=========================================
+
+Thank you for using this open-source automation script package. Please note the following:
+
+---
+
+🚧 BETA TESTING PHASE
+
+This toolset is currently in **active beta testing**.
+
+That means:
+- Bugs or unexpected behavior may occur
+- Features may change based on feedback
+- Some edge cases might not be fully handled yet
+
+🧪 Please test everything using **a duplicate Sheet or Form** before using it in production.
+
+---
+
+📩 FEEDBACK + ISSUE REPORTING
+
+If you find something broken or unclear, please help improve this project:
+
+1. Take a **screenshot or screen recording** of the issue (use PC for ease)
+2. Capture any error messages from Google Apps Script’s “Execution Logs”
+3. Post it to ChatGPT, GitHub Issues, or your preferred support channel
+
+---
+
+🛡 SECURITY NOTICE
+
+This project includes code that may interact with:
+- Google Drive
+- Google Calendar
+- Discord (via webhook)
+- External APIs (e.g. OpenWeatherMap)
+
+Make sure you:
+- Do NOT upload your script with real API keys or Webhooks unless secured
+- Avoid editing your live Sheets without testing first
+
+---
+
+✅ LICENSE
+
+Please include an open-source license (MIT recommended) before distribution. This keeps your project legally protected and reusable by others.
+
+---
+
+Let us know what works, what breaks, and what could be better.
+You're part of making automation tools better for everyone.
+

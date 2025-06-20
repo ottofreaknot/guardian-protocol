@@ -1,0 +1,20 @@
+
+// IDENTIFIER: MANUAL_REPORT_LOGGER
+function onEdit(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Maintenance");
+  const row = e?.range?.getRow();
+  if (!row || row < 2) return;
+
+  const rowData = sheet.getRange(row, 1, 1, 8).getValues()[0];
+  const [client, task, date, worker, status, notes, tools, weather] = rowData;
+
+  if (!client || !task || !date || status === "Posted") return;
+
+  const folder = DriveApp.getFolderById("your-folder-id");
+  const subfolder = folder.getFoldersByName(client).hasNext() ? folder.getFoldersByName(client).next() : folder.createFolder(client);
+
+  const fileName = `Maintenance_${client}_${new Date().toISOString()}.txt`;
+  const file = subfolder.createFile(fileName, `Task: ${task}\nWorker: ${worker}\nNotes: ${notes}`);
+
+  sheet.getRange(row, 5).setValue("Posted");
+}
